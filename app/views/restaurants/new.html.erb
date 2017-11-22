@@ -1,0 +1,9 @@
+<h1>RESTAURANT#NEW</h1>
+<%= simple_form_for [@restaurant] do |f| %>
+  <%= f.input :name, inline_label: "Restaurant name" %>
+  <%= f.input :address, inline_label: "Restaurant address" %>
+  <%= f.input :phone_number, inline_label: "Restaurant phone number" %>
+  <%= f.label :category, label: "chinese, italian, japanese, french, or belgian?" %>
+  <%= f.input :category, inline_label: "Choose a category" %>
+  <%= f.button :submit %>
+<% end %>

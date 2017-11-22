@@ -1,2 +1,16 @@
 <h1>Restaurants#index</h1>
 <p>Find me in app/views/restaurants/index.html.erb</p>
+  <ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant_path(restaurant["id"]) do %>
+      <div class = "restaurant_name">
+          <h3><%= "#{restaurant.name}" %></h3>
+      <% end %>
+      </div>
+      <div class="restaurant_details">
+          <%= "#{restaurant.category.capitalize} | #{restaurant.address} | #{restaurant.phone_number}" %>
+      </div>
+    </li>
+    <% end %>
+  </ul>

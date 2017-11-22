@@ -1,0 +1,25 @@
+<div class="restaurant_name">
+        <h1><%= @restaurant.name %></h1>
+</div>
+  <ul>
+    <li>
+      <div class="restaurant_details">
+        <%= "#{@restaurant.category.capitalize} | #{@restaurant.address} | #{@restaurant.phone_number}" %>
+      </div>
+    </li>
+  </ul>
+  <ul class="list_reviews">
+    <h3>Reviews of <%= @restaurant.name %></h3>
+    <hr>
+  <% if @reviews.any? %>
+    <% @reviews.each do |r| %>
+    <li>
+    <%= "#{r.content} | Posted on #{r.created_at.strftime("%d/%m/%Y %H:%M")}" %>
+    </li>
+    <% end %>
+   </ul>
+  <% else %>
+    <p>No Reviews</p>
+    <%= link_to "Add A Review", new_restaurant_review_path(@restaurant) %>
+  <% end %>
+
